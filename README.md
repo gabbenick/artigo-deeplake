@@ -30,8 +30,6 @@ Foram realizados **benchmarks de desempenho** (armazenamento e velocidade de ite
 - **requirements.txt** → Lista de dependências.  
 - **README.md** → Documentação do projeto.  
 
-> Obs.: A pasta **venv/** é apenas o ambiente virtual local e não deve ser versionada.
-
 ## Como Executar
 
 1. Crie um ambiente virtual Python 3.11.  
