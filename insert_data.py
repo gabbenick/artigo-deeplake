@@ -2,8 +2,8 @@ import deeplake
 import os
 import glob
 from tqdm import tqdm
-from PIL import Image # Import PIL
-import numpy as np   # Import NumPy
+from PIL import Image
+import numpy as np
 
 # --- Configuration ---
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))

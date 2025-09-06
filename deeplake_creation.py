@@ -8,7 +8,7 @@ PROJECT_ROOT = SCRIPT_DIR # Assuming script is at project root
 
 DATASET_PARENT_DIR_NAME = "dl_datasets"
 # CONSISTENT DATASET NAME - Use this one
-DATASET_NAME = "shdataset_12k" # Clear, new name for this attempt
+DATASET_NAME = "shdataset_12k"
 DEEPLAKE_DATASET_PATH = os.path.join(PROJECT_ROOT, DATASET_PARENT_DIR_NAME, DATASET_NAME)
 
 OVERWRITE_EXISTING_DATASET = True
