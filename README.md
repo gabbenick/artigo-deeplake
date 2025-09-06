@@ -6,7 +6,7 @@ Este repositório contém o código desenvolvido para o artigo publicado na **ER
 
 ## Contexto
 
-O projeto compara dois pipelines de dados para imagens médicas (SHdataset):  
+O projeto compara dois pipelines de dados para imagens médicas (SHdataset (https://zenodo.org/records/6467268)):  
 - **PNG tradicional**, baseado em diretórios de arquivos.  
 - **Deep Lake**, uma arquitetura moderna otimizada para *deep learning*.  
 
