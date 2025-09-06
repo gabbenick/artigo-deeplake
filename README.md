@@ -1,25 +1,58 @@
 # Projeto: Artigo ERBASE 2025
 
-Este repositório contém o código desenvolvido para o artigo publicado na ERBASE (Escola Regional de Computação Bahia-Alagoas-Sergipe). O objetivo principal do projeto foi explorar e propor soluções para [descrever brevemente o tema do artigo, ex: otimização de consultas em bancos de dados relacionais].
+Este repositório contém o código desenvolvido para o artigo publicado na **ERBASE 2025**, intitulado:  
+
+**“Uma arquitetura de Data Lake baseado em Deep Learning para busca de imagens parasitárias de doenças socialmente determinadas”**
 
 ## Contexto
 
-O código foi criado como parte da pesquisa apresentada no artigo "[Título do Artigo]" publicado na ERBASE [ano]. O trabalho aborda [resuma o problema ou desafio tratado no artigo] e apresenta resultados experimentais que validam as propostas.
+O projeto compara dois pipelines de dados para imagens médicas (SHdataset):  
+- **PNG tradicional**, baseado em diretórios de arquivos.  
+- **Deep Lake**, uma arquitetura moderna otimizada para *deep learning*.  
 
-## Estrutura dos Arquivos
+Foram realizados **benchmarks de desempenho** (armazenamento e velocidade de iteração) e um **estudo de caso com Deep Metric Learning (DML)** usando *Triplet Loss* para avaliar a qualidade dos embeddings.
 
-- **src/main.py**: Ponto de entrada do projeto, responsável por executar os experimentos descritos no artigo.
-- **src/models.py**: Definição das estruturas de dados e modelos utilizados.
-- **src/utils.py**: Funções auxiliares para manipulação de dados e execução dos testes.
-- **data/**: Conjunto de dados utilizados nos experimentos.
-- **notebooks/**: Jupyter Notebooks com análises exploratórias e visualização dos resultados.
-- **results/**: Resultados dos experimentos realizados, incluindo gráficos e tabelas apresentados no artigo.
+## Estrutura do Repositório
+
+- **experiment_results/**  
+  - `embeddings_from_deeplake_model.npz` → Embeddings gerados pelo modelo treinado no pipeline Deep Lake.  
+  - `embeddings_from_png_model.npz` → Embeddings gerados pelo modelo treinado no pipeline PNG.  
+  - `final_comparison_metrics.csv` → Métricas comparativas entre os dois pipelines.  
+  - `model_trained_on_deeplake.pth` → Modelo final treinado no dataset Deep Lake.  
+  - `model_trained_on_pngs.pth` → Modelo final treinado no dataset PNG.  
+- **deeplake_creation.py** → Script para criação do dataset no formato Deep Lake.  
+- **insert_data.py** → Script para inserção dos dados e metadados no dataset.  
+- **iteration_benchmark.ipynb** → Notebook para benchmarking de velocidade de iteração.  
+- **size_comparison.ipynb** → Notebook para análise comparativa de espaço em disco.  
+- **dml_tsne_visualization.ipynb** → Notebook de visualização dos embeddings com t-SNE.  
+- **saved_model_execution.ipynb** → Notebook para execução/avaliação de modelos salvos.  
+- **benchmark_resultados_agregados.csv** → Resultados agregados de benchmarks.  
+- **requirements.txt** → Lista de dependências.  
+- **README.md** → Documentação do projeto.  
+
+> Obs.: A pasta **venv/** é apenas o ambiente virtual local e não deve ser versionada.
 
 ## Como Executar
 
-1. Instale as dependências listadas em `requirements.txt`.
-2. Execute `python src/main.py` para reproduzir os experimentos.
+1. Crie um ambiente virtual Python 3.11.  
+2. Instale as dependências:  
+   ```bash
+   pip install -r requirements.txt
+3. Para gerar o dataset em Deep Lake:
+   python deeplake_creation.py
+4. Execute os notebooks em *.ipynb para reproduzir análises, visualizações e resultados.
+
+## Principais Resultados
+
+Deep Lake: iteração de dados mais rápida e estável, mas consumindo 59,2% mais espaço em disco.
+
+PNG: melhor separabilidade entre classes no espaço de embeddings, refletindo em métricas levemente superiores no k-NN.
+
+Trade-off: eficiência de gerenciamento e velocidade (Deep Lake) vs. simplicidade e menor custo de armazenamento (PNG).
 
 ## Referência
 
-Se utilizar este código, cite o artigo conforme publicado na ERBASE.
+Se utilizar este código, cite o artigo conforme publicado na ERBASE 2025:
+
+Uma arquitetura de Data Lake baseado em Deep Learning para busca de imagens parasitárias de doenças socialmente determinadas.
+   
